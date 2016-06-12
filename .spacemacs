@@ -24,6 +24,11 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      better-defaults
+     (colors :variables
+             colors-enable-rainbow-identifiers nil
+             colors-enable-rainbow-mode t
+             colors-enable-nyan-cat-progress-bar nil)
+
      emacs-lisp
      osx
      (auto-completion :variables
@@ -32,11 +37,11 @@ values."
                       auto-completion-complete-with-key-sequence nil
                       auto-completion-complete-with-key-sequence-delay 0.1
                       auto-completion-private-snippets-directory nil)
-     
+
      bilus-various
      ;; git
      markdown
-     ;; org
+     org
      (shell :variables
              shell-default-height 30
              shell-default-position 'bottom)
@@ -49,7 +54,10 @@ values."
            ruby-version-manager 'rvm)
      clojure
      html
+     restclient
      sql
+     themes-megapack
+     ;; search-engine
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -88,7 +96,7 @@ values."
    ;; variable is `emacs' then the `holy-mode' is enabled at startup. `hybrid'
    ;; uses emacs key bindings for vim's insert mode, but otherwise leaves evil
    ;; unchanged. (default 'vim)
-   dotspacemacs-editing-style 'emacs
+   dotspacemacs-editing-style 'hybrid
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
    ;; Specify the startup banner. Default value is `official', it displays
@@ -110,13 +118,25 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
-                         spacemacs-light
-                         solarized-light
-                         solarized-dark
-                         leuven
-                         monokai
-                         zenburn)
+   dotspacemacs-themes '(
+                         ;; light-themes
+                            ;;spacemacs-dark
+                            ;; spacemark-light
+                         ;; solarized-light
+                         ;; solarized-dark
+                         ;;leuven
+                         ;;monokai
+                         ;;zenburn
+                         ;;alect-light-alt
+                         ample-zen
+                         ;;apropospriate-light
+                         birds-of-paradise-plus
+                         colorsarenice-dark
+                         ;;tango-plus
+                         ;colorsarenice-light
+                         ;twilight-anti-bright
+
+                         )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -268,3 +288,19 @@ you should place you code here."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(cider-repl-display-in-current-window t)
+ '(org-agenda-files
+   (quote
+    ("~/org/tooploox.org" "~/org/designed.ly.org" "~/org/private.org"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
